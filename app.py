@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 # Cấu hình trang Streamlit
-st.set_page_config(
+st.st.image("logo.jpg")(
     page_title="Máy tính Lãi suất Tiết kiệm", page_icon="💰", layout="centered"
 )
 

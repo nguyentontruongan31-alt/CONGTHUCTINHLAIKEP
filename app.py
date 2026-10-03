@@ -1,10 +1,18 @@
 import pandas as pd
 import streamlit as st
 
-# Cấu hình trang Streamlit
-st.image("logo.jpg")(
-    page_title="Máy tính Lãi suất Tiết kiệm_Nguyễn Tôn Trường An", page_icon="💰", layout="centered"
+# 1. Cấu hình trang Streamlit (đúng cú pháp)
+st.set_page_config(
+    page_title="Máy tính Lãi suất Tiết kiệm - Nguyễn Tôn Trường An",
+    page_icon="💰",
+    layout="centered",
 )
+
+# 2. Hiển thị logo (bỏ qua dòng này hoặc xóa đi nếu bạn chưa có file 'logo.jpg')
+try:
+  st.image("logo.jpg", width=150)
+except Exception:
+  pass
 
 st.title("💰 Ứng Dụng Tính Lãi Suất Tiết Kiệm")
 st.write(
@@ -52,7 +60,6 @@ if submitted:
 
   # Xử lý tính toán
   if "Lãi đơn" in interest_type:
-    # Lãi đơn: I = P * r * t
     total_interest = P * r * t_years
     total_amount = P + total_interest
 
@@ -66,22 +73,19 @@ if submitted:
       periodic_interest = total_interest
 
   else:
-    # Lãi kép: A = P * (1 + r/n)^(n*t)
     if interest_method == "Hàng tháng":
       r_period = r / 12
       num_periods = n_months
       total_amount = P * ((1 + r_period) ** num_periods)
       total_interest = total_amount - P
-      periodic_interest = (
-          total_interest / num_periods if num_periods > 0 else 0
-      )  # Lãi trung bình hàng tháng
+      periodic_interest = total_interest / num_periods if num_periods > 0 else 0
     elif interest_method == "Hàng quý":
       r_period = r / 4
       num_periods = n_months / 3
       total_amount = P * ((1 + r_period) ** num_periods)
       total_interest = total_amount - P
       periodic_interest = total_interest / num_periods if num_periods > 0 else 0
-    else:  # Cuối kỳ (gộp lãi cuối kỳ)
+    else:
       r_period = r
       num_periods = t_years
       total_amount = P * ((1 + r_period) ** num_periods)

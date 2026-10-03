@@ -3,7 +3,7 @@ import streamlit as st
 
 # Cấu hình trang Streamlit
 st.image("logo.jpg")(
-    page_title="Máy tính Lãi suất Tiết kiệm", page_icon="💰", layout="centered"
+    page_title="Máy tính Lãi suất Tiết kiệm_Nguyễn Tôn Trường An", page_icon="💰", layout="centered"
 )
 
 st.title("💰 Ứng Dụng Tính Lãi Suất Tiết Kiệm")

@@ -14,7 +14,7 @@ try:
 except Exception:
   pass
 
-st.title("💰 Ứng Dụng Tính Lãi Suất Tiết Kiệm")
+st.title("💰 Ứng Dụng Tính Lãi Suất Tiết Kiệm_Nguyễn Tôn Trường An")
 st.write(
     "Nhập thông tin khoản tiết kiệm của bạn để tính toán chi tiết tiền lãi định"
     " kỳ, tổng tiền lãi và tổng số tiền nhận được."
